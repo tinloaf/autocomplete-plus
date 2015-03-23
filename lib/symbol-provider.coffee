@@ -20,7 +20,7 @@ class SymbolProvider
   config: null
   defaultConfig:
     class:
-      selector: '.class.name, .inherited-class'
+      selector: '.class.name, .inherited-class, .instance.type'
       priority: 4
     function:
       selector: '.function.name'
