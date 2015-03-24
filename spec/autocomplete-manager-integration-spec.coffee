@@ -124,7 +124,7 @@ describe 'Autocomplete Manager', ->
         runs ->
           expect(editorView.querySelector('.autocomplete-plus')).toExist()
           expect(editorView.querySelectorAll('.autocomplete-plus li')).toHaveLength 5
-          expect(editorView.querySelector('.autocomplete-plus .list-group').style['max-height']).toBe("#{2 * 25}px")
+          expect(editorView.querySelector('.autocomplete-plus autocomplete-suggestion-list').style['max-height']).toBe("#{2 * 25}px")
 
     describe "when match.snippet is used", ->
       beforeEach ->
@@ -936,7 +936,7 @@ describe 'Autocomplete Manager', ->
           item.dispatchEvent(mouse)
 
           expect(editorView.querySelector('.autocomplete-plus')).not.toExist()
-          expect(editor.getBuffer().getLastLine()).toEqual(item.innerText)
+          expect(editor.getBuffer().getLastLine()).toEqual(item.textContent.trim())
 
     describe '.cancel()', ->
       it 'unbinds autocomplete event handlers for move-up and move-down', ->
